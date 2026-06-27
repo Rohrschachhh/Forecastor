@@ -17,7 +17,6 @@ Powered by Python, machine learning, and a concerning amount of optimism. Someti
 - 🌡️ Temperature line chart with optional "Feels Like" overlay
 - ☁️ Sky condition frequency chart + icon grid (via OpenWeatherMap CDN)
 - 📊 Summary cards — High, Low, Average, Dominant condition
-- 🎨 Custom dark-themed UI
 
 ---
 
@@ -90,7 +89,7 @@ The app will open in your browser at `http://localhost:8501`.
 ---
 
 
-## Built With
+## Built With Python, Coffee and my wit to predict Weather nobody asked for ...
 
 - [Streamlit](https://streamlit.io) — UI framework
 - [Plotly](https://plotly.com/python/) — Interactive charts
