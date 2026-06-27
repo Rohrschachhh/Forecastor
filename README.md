@@ -89,43 +89,6 @@ The app will open in your browser at `http://localhost:8501`.
 
 ---
 
-## Requirements File
-
-Create a `requirements.txt` with the following:
-
-```
-streamlit
-requests
-plotly
-python-dotenv
-```
-
----
-
-## .gitignore File
-
-Create a `.gitignore` with the following:
-
-```
-.env
-venv/
-__pycache__/
-*.pyc
-.DS_Store
-```
-
----
-
-## Common Issues
-
-| Problem | Fix |
-|---|---|
-| `401 Unauthorized` | API key is invalid or not yet activated — wait 10 min after creating |
-| `404 Not Found` | City name is misspelled or not in OpenWeatherMap's database |
-| Temperatures showing ~300 | `units=metric` missing from API call — already fixed in this version |
-| App works locally but not on cloud | API key not added to Streamlit Secrets |
-
----
 
 ## Built With
 
