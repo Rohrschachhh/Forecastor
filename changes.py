@@ -1,9 +1,19 @@
 import requests
+import streamlit as st
 from dotenv import load_dotenv
 import os
 
 load_dotenv()
-API_KEY = os.getenv("OPENWEATHER_API_KEY")
+
+# Read from Streamlit Secrets (cloud) and fall back to .env (local)
+def get_api_key() -> str:
+    try:
+        return st.secrets["OPENWEATHER_API_KEY"]
+    except (KeyError, FileNotFoundError):
+        key = os.getenv("OPENWEATHER_API_KEY")
+        if not key:
+            raise PermissionError("API key not found. Set OPENWEATHER_API_KEY in .env locally or in Streamlit Secrets on the cloud.")
+        return key
 
 BASE_URL = "https://api.openweathermap.org/data/2.5/forecast"
 
@@ -22,14 +32,16 @@ def get_data(place: str, forecast_days: int) -> list:
     if not place or not place.strip():
         raise ValueError("Location cannot be empty.")
 
+    api_key = get_api_key()
+
     # units=metric tells the API to return temperatures directly in Celsius
-    url = f"{BASE_URL}?q={place.strip()}&appid={API_KEY}&units=metric"
+    url = f"{BASE_URL}?q={place.strip()}&appid={api_key}&units=metric"
     response = requests.get(url, timeout=10)
 
-    if response.status_code == 404:
-        raise ValueError(f"Location '{place}' not found. Please check the spelling.")
-    elif response.status_code == 401:
+    if response.status_code == 401:
         raise PermissionError("Invalid API key. Contact the app administrator.")
+    elif response.status_code == 404:
+        raise ValueError(f"Location '{place}' not found. Please check the spelling.")
     elif response.status_code != 200:
         raise ConnectionError(f"API error {response.status_code}: {response.text}")
 
