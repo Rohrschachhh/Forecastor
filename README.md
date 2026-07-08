@@ -40,7 +40,7 @@ weather-app/
 
 ```bash
 git clone https://github.com/Rohrschachhh/Forecastor.git
-cd your-repo-name
+cd Forecastor
 ```
 
 ### 2. Create and activate a virtual environment
