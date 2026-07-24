@@ -24,7 +24,7 @@ Powered by Python, machine learning, and a concerning amount of optimism. Someti
 
 ```
 weather-app/
-├── app.py               # Streamlit frontend
+├── model.py               # Streamlit frontend
 ├── backend.py           # OpenWeatherMap API logic
 ├── requirements.txt     # Python dependencies
 ├── .env                 # Your API key (never commit this)
@@ -39,8 +39,8 @@ weather-app/
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/your-username/your-repo-name.git
-cd your-repo-name
+git clone https://github.com/Rohrschachhh/Forecastor.git
+cd Forecastor
 ```
 
 ### 2. Create and activate a virtual environment
@@ -81,7 +81,7 @@ OPENWEATHER_API_KEY=your_api_key_here
 ### 6. Run the app locally
 
 ```bash
-streamlit run app.py
+streamlit run model.py
 ```
 
 The app will open in your browser at `http://localhost:8501`.
